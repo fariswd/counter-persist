@@ -10,6 +10,8 @@ What i do:
 7. setup redux-persist
 8. add icon
 9. add deeplink
+10. setup signed apk
+11. build apk
 
 fariswd  
 2018 :rocket:
