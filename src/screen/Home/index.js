@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
+  Platform,
+  Linking,
 } from 'react-native';
 import {
   Container,
@@ -23,6 +25,36 @@ import {
 import Dashboard from './component/dashboard'
 
 export default class HomeScreen extends Component {
+  componentDidMount() { // B
+    if (Platform.OS === 'android') {
+      Linking.getInitialURL().then(url => {
+        this.navigate(url);
+      });
+    } else {
+        Linking.addEventListener('url', this.handleOpenURL);
+    }
+  }
+  
+  componentWillUnmount() { // C
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  handleOpenURL = (event) => { // D
+    this.navigate(event.url);
+  }
+
+  navigate = (url) => { // E
+    const { navigate } = this.props.navigation;
+    if(url) {
+      const route = url.replace(/.*?:\/\//g, '');
+      const routeName = route.split('/')[0];
+      
+      if (routeName === 'count') {
+        navigate('CounterScreen')
+      };
+    }
+  }
+  
   render() {
     return (
       <Container>

@@ -8,7 +8,8 @@ What i do:
 5. setup redux
 6. setup action
 7. setup redux-persist
-8. 
+8. add icon
+9. add deeplink
 
 fariswd  
 2018 :rocket:

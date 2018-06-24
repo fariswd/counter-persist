@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   touchMenu: {
     width: 80,
-    height: 85,
+    height: 110,
     alignContent: 'center',
     alignItems: 'center',
   },
